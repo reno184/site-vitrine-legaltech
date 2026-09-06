@@ -1,35 +1,32 @@
-import { defineConfig } from 'vite';
-import pugPlugin from 'vite-plugin-pug';
 import tailwindcss from '@tailwindcss/vite';
-import { resolve } from 'path';
+import {resolve} from 'path';
+import {defineConfig} from 'vite';
 
 export default defineConfig({
     plugins: [
         tailwindcss(),
-        pugPlugin({}, { page: { title: 'Mon Site' } })
     ],
+    publicDir: false,
+    server: {
+        watch: {
+            ignored: ['**/public/**'],
+        },
+    },
     build: {
+        outDir: 'public',
+        emptyOutDir: false,
+        watch: {
+            exclude: ['public/**'],
+        },
         rollupOptions: {
             input: {
-                main: resolve(__dirname, 'index.html'),
-                about: resolve(__dirname, 'about.html'),
-                style: resolve(__dirname, 'src/style.css'),
-                script: resolve(__dirname, 'src/scripts/main.js'),
+                style: resolve(__dirname, 'src/styles/style.css'),
+                main: resolve(__dirname, 'src/scripts/main.js'),
+                contact: resolve(__dirname, 'src/scripts/contact.js'),
             },
             output: {
-                entryFileNames: (chunkInfo) => {
-                    if (chunkInfo.name === 'script') {
-                        return 'src/scripts/main.js';
-                    }
-                    return 'assets/[name]-[hash].js';
-                },
-                assetFileNames: (assetInfo) => {
-                    const name = assetInfo.name ?? assetInfo.names?.[0] ?? '';
-                    if (name === 'style.css') {
-                        return 'src/style.css';
-                    }
-                    return 'assets/[name]-[hash][extname]';
-                },
+                entryFileNames: 'scripts/[name].js',
+                assetFileNames: 'styles/[name][extname]',
             },
         },
     },

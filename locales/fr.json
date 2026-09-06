@@ -8,13 +8,14 @@
   "nav": {
     "home": "Accueil",
     "about": "À propos",
-    "articles": "Articles"
+    "articles": "Articles",
+    "contact": "contact"
   },
   "home": {
-    "title" : "accueil"
+    "title": "accueil"
   },
   "contact": {
-    "title" : "Contact"
+    "title": "Contact"
   },
   "article": {
     "readMore": "Lire l’article",

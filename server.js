@@ -75,6 +75,16 @@ app.get("/:locale/about", (req, res) => {
     });
 });
 
+app.get("/:locale/contact", (req, res) => {
+    if (!supportedLocales.includes(req.params.locale)) {
+        return res.status(404).send("Page introuvable");
+    }
+
+    res.render("pages/contact", {
+        title: res.__("nav.contact"),
+    });
+});
+
 app.get("/:locale/articles", (req, res) => {
     if (!supportedLocales.includes(req.params.locale)) {
         return res.status(404).send("Page introuvable");

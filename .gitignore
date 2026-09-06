@@ -1,4 +1,5 @@
 .idea
-public/styles/style.css
-public/scripts/main.js
-.firebase
+public/scripts/
+public/styles/
+public/assets/
+.env

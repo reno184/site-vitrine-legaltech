@@ -4,11 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run css:watch\" \"nodemon server.js\"",
-    "start": "node server.js",
-    "css:build": "tailwindcss -i src/styles/style.css -o ./public/styles/style.css",
-    "css:watch": "tailwindcss -i src/styles/style.css -o ./public/styles/style.css --watch",
-    "build": "npm run css:build"
+    "dev": "concurrently \"vite build --watch\" \"nodemon server.js\"",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
@@ -19,8 +16,7 @@
     "concurrently": "^10.0.5",
     "nodemon": "^3.1.14",
     "pug": "^3.0.4",
-    "tailwindcss": "^4.3.3",
-    "vite-plugin-pug": "^0.4.1"
+    "tailwindcss": "^4.3.3"
   },
   "dependencies": {
     "express": "^5.2.1",

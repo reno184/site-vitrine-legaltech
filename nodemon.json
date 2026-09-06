@@ -1,0 +1,15 @@
+{
+  "watch": [
+    "server.js",
+    "views",
+    "data",
+    "locales"
+  ],
+  "ignore": [
+    "public/*",
+    "src/*",
+    "dist/*",
+    "node_modules/*"
+  ],
+  "ext": "js,json,pug"
+}
