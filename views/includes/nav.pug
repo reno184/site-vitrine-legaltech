@@ -1,0 +1,11 @@
+nav.p-4.bg-white.shadow.flex.items-center.justify-between.gap-4
+    .flex.gap-4
+        .flex.gap-4
+            a.text-red-600.font-bold(href=`/${locale}`)= __("nav.home")
+            a.text-blue-600.font-bold(href=`/${locale}/about`)= __("nav.about")
+            a.text-blue-600.font-bold(href=`/${locale}/articles`)= __("nav.articles")
+        .flex.items-center.gap-2
+            if locale === "fr"
+                a.ml-auto.text-sm.text-gray-500(href="/en") English
+            else
+                a.ml-auto.text-sm.text-gray-500(href="/fr") Français

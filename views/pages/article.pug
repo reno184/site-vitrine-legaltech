@@ -1,0 +1,9 @@
+extends ../layout/main
+
+block content
+    article.bg-white.shadow.rounded.p-6
+        h1.text-3xl.font-bold= article.title
+        p.text-sm.text-gray-500.mt-2 #{__("article.publishedAt")} #{article.publishedAt}
+        p.mt-6= article.content
+
+    a.inline-block.mt-6.text-blue-600.font-bold(href=`/${locale}/articles`)= __("nav.articles")

@@ -1,0 +1,11 @@
+extends ../layout/main
+
+block content
+    h1.text-3xl.font-bold.mb-6= __("nav.articles")
+
+    each article in articles
+        article.bg-white.shadow.rounded.p-4.mb-4
+            h2.text-2xl.font-bold= article.title
+            p.text-sm.text-gray-500 #{__("article.publishedAt")} #{article.publishedAt}
+            p.mt-2= article.excerpt
+            a.inline-block.mt-4.text-blue-600.font-bold(href=`/${locale}/articles/${article.slug}`)= __("article.readMore")

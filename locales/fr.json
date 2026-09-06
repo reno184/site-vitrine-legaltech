@@ -1,0 +1,23 @@
+{
+  "site": {
+    "title": "Mon Site"
+  },
+  "meta": {
+    "description": "Description du site fr "
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "articles": "Articles"
+  },
+  "home": {
+    "title" : "accueil"
+  },
+  "contact": {
+    "title" : "Contact"
+  },
+  "article": {
+    "readMore": "Lire l’article",
+    "publishedAt": "Publié le"
+  }
+}

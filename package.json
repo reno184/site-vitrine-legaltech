@@ -1,0 +1,29 @@
+{
+  "name": "site-vitrine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run css:watch\" \"nodemon server.js\"",
+    "start": "node server.js",
+    "css:build": "tailwindcss -i src/styles/style.css -o ./public/styles/style.css",
+    "css:watch": "tailwindcss -i src/styles/style.css -o ./public/styles/style.css --watch",
+    "build": "npm run css:build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "concurrently": "^10.0.5",
+    "nodemon": "^3.1.14",
+    "pug": "^3.0.4",
+    "tailwindcss": "^4.3.3",
+    "vite-plugin-pug": "^0.4.1"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "i18n": "^0.15.3"
+  }
+}
