@@ -16,7 +16,7 @@ nav.p-4.bg-mist-400.shadow.flex.items-center
             a(
                 href=`/${locale}${item.url}`
                 data-index=index
-                class="nav-link transition-colors " + (isActive ? "rounded-lg py-2 px-4 bg-mist-100 active-nav" : "py-2 px-4 hover:bg-mist-200 rounded-lg")
+                class="nav-link transition-colors " + (isActive ? "rounded-lg py-2 px-4 bg-mist-200 text-mist-700 active-nav" : "py-2 px-4 text-mist-200 hover:bg-mist-200 text-mist-700 rounded-lg")
             )= __(item.label)
 
     div.text-sm.text-gray-500
