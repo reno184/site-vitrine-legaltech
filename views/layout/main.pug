@@ -12,10 +12,15 @@ html(lang=locale)
             link(rel="alternate", hreflang="x-default", href=`${siteUrl}/${defaultLang || 'fr'}${localizedPath}`)
 
         link(rel="stylesheet", href="/styles/style.css")
+        link(rel="stylesheet", href="/styles/font-impact.css")
+        link(rel="stylesheet", href="/styles/fontawesome.min.css")
+        link(rel="stylesheet", href="/styles/regular.min.css")
+        link(rel="stylesheet", href="/styles/brands.min.css")
         script(type="module", src="/scripts/main.js")
         block scripts
-    body.bg-gray-100.text-gray-900
-        include ../includes/nav.pug
+    body.bg-mist-700.text-gray-900.h-dvh
+        .container.mt-4.mx-auto.border.border-white.rounded-md
+            include ../includes/nav.pug
 
-        main.container.mx-auto.p-6
+        main.container.mt-4.mx-auto.p-6.border.border-white.rounded-md.bg-mist-400
             block content

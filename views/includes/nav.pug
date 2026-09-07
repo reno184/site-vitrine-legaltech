@@ -1,12 +1,11 @@
-nav.p-4.bg-white.shadow.flex.items-center.justify-between.gap-4
-    .flex.gap-4
-        .flex.gap-4
-            a.text-red-600.font-bold(href=`/${locale}`)= __("nav.home")
-            a.text-blue-600.font-bold(href=`/${locale}/about`)= __("nav.about")
-            a.text-blue-600.font-bold(href=`/${locale}/articles`)= __("nav.articles")
-            a.text-blue-600.font-bold(href=`/${locale}/contact`)= __("nav.contact")
-        .flex.items-center.gap-2
-            if locale === "fr"
-                a.ml-auto.text-sm.text-gray-500(href="/en") English
-            else
-                a.ml-auto.text-sm.text-gray-500(href="/fr") Français
+nav.p-4.bg-mist-400.shadow.flex.items-center
+    .flex-grow-1.text-blue-600.font-bold
+        a.mx-1(href=`/${locale}`)= __("nav.home")
+        a.mx-1(href=`/${locale}/about`)= __("nav.about")
+        a.mx-1(href=`/${locale}/articles`)= __("nav.articles")
+        a.mx-1(href=`/${locale}/contact`)= __("nav.contact")
+    div.text-sm.text-gray-500
+        if locale === "fr"
+            a.mx-1(href="/en") English
+        else
+            a.mx-1(href="/fr") Français
