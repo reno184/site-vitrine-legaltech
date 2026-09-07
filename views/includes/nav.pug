@@ -1,9 +1,24 @@
+//- views/includes/nav.pug
+-
+    const navItems = [
+        {url: '', label: 'nav.home'},
+        {url: '/about', label: 'nav.about'},
+        {url: '/articles', label: 'nav.articles'},
+        {url: '/contact', label: 'nav.contact'}
+    ]
+
 nav.p-4.bg-mist-400.shadow.flex.items-center
-    .flex-grow-1.text-blue-600.font-bold
-        a.mx-1(href=`/${locale}`)= __("nav.home")
-        a.mx-1(href=`/${locale}/about`)= __("nav.about")
-        a.mx-1(href=`/${locale}/articles`)= __("nav.articles")
-        a.mx-1(href=`/${locale}/contact`)= __("nav.contact")
+    .flex-grow-1.text-blue-600.font-bold.flex.gap-2
+        each item, index in navItems
+            //- Vérification de la route active
+            - const isActive = localizedPath === item.url || (item.url === '' && localizedPath === '/')
+
+            a(
+                href=`/${locale}${item.url}`
+                data-index=index
+                class="nav-link transition-colors " + (isActive ? "rounded-lg py-2 px-4 bg-mist-100 active-nav" : "py-2 px-4 hover:bg-mist-200 rounded-lg")
+            )= __(item.label)
+
     div.text-sm.text-gray-500
         if locale === "fr"
             a.mx-1(href="/en") English

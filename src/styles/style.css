@@ -39,3 +39,56 @@
         animation-delay: 0ms;
     }
 }
+
+/* public/styles/style.css */
+
+/* 1. On donne un nom de transition uniquement à l'élément actif */
+.active-nav {
+    view-transition-name: active-menu-indicator;
+}
+
+/* 2. On configure la vitesse et le type de courbe (Ease "power2" de GSAP) */
+::view-transition-group(active-menu-indicator) {
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); /* Équivalent ease-out */
+}
+
+/* 3. Animations d'étirement superposées au déplacement natif */
+html[data-direction="right"] ::view-transition-group(active-menu-indicator) {
+    animation-name: -ua-view-transition-group-anim, stretch-right;
+}
+
+html[data-direction="left"] ::view-transition-group(active-menu-indicator) {
+    animation-name: -ua-view-transition-group-anim, stretch-left;
+}
+
+/* Keyframes d'élasticité (déforme l'élément pendant le trajet) */
+@keyframes stretch-right {
+    0% {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+    50% {
+        transform: scaleX(1.4);
+        transform-origin: left center;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: right center;
+    }
+}
+
+@keyframes stretch-left {
+    0% {
+        transform: scaleX(1);
+        transform-origin: right center;
+    }
+    50% {
+        transform: scaleX(1.4);
+        transform-origin: right center;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: left center;
+    }
+}
