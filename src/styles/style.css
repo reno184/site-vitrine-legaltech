@@ -4,11 +4,17 @@
     navigation: auto;
 }
 
-::view-transition-old(root) {
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+}
+
+/* 2. Appliquer les animations exclusivement à l'élément main-content */
+::view-transition-old(main-content) {
     animation: fade-out 250ms ease-in both;
 }
 
-::view-transition-new(root) {
+::view-transition-new(main-content) {
     animation: fade-in 300ms ease-out 200ms both;
 }
 
@@ -18,7 +24,7 @@
     }
 
     to {
-        opacity: .1;
+        opacity: .0;
     }
 }
 

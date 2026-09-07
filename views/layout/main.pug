@@ -19,8 +19,8 @@ html(lang=locale)
         script(type="module", src="/scripts/main.js")
         block scripts
     body.bg-mist-700.text-gray-900.h-dvh
-        .container.mt-4.mx-auto.border.border-white.rounded-md
+        nav.container.mt-4.mx-auto.border.border-white.rounded-md
             include ../includes/nav.pug
 
-        main.container.mt-4.mx-auto.p-6.border.border-white.rounded-md.bg-mist-400
+        main.container.mt-4.mx-auto.p-6.border.border-white.rounded-md.bg-mist-400(style="view-transition-name: main-content;")
             block content

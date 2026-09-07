@@ -1,3 +1,7 @@
+# Elements remarquables
+
+- stretchy menu avec view transition api
+
 Quand vous lancez un serveur Node.js avec la commande standard node server.js :
 Node charge l'intégralité du code JavaScript (server.js, les routes, les middlewares) en mémoire vive.
 Si vous modifiez du code backend (par exemple en ajoutant une nouvelle route comme app.get("/contact")), Node.js ne prend pas en compte votre modification tant que le processus Node reste actif.
