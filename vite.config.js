@@ -6,16 +6,11 @@ export default defineConfig({
     plugins: [
         tailwindcss(),
     ],
-    publicDir: false,
-    server: {
-        watch: {
-            ignored: ['**/public/**'],
-        },
-    },
     build: {
         outDir: 'public',
         emptyOutDir: false,
         watch: {
+            include: ['src/scripts/**', 'src/styles/**', 'views/**'],
             exclude: ['public/**'],
         },
         rollupOptions: {

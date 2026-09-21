@@ -1,23 +1,10 @@
+# site-vitrine-legaltech
+
+> Important des containers actifs peuvent tourner en tâche de fond occuppant le port 3000, donc bienpenser à arrêter les containers actifs avant de lancer cette application qui tourne sans docker
+
 # Elements remarquables
 
 - stretchy menu avec view transition api
-
-Quand vous lancez un serveur Node.js avec la commande standard node server.js :
-Node charge l'intégralité du code JavaScript (server.js, les routes, les middlewares) en mémoire vive.
-Si vous modifiez du code backend (par exemple en ajoutant une nouvelle route comme app.get("/contact")), Node.js ne prend pas en compte votre modification tant que le processus Node reste actif.
-Sans outil automatique, vous devriez manuellement faire CTRL + C dans votre terminal pour stopper le serveur, puis retaper node server.js.
-
-Le rôle de Nodemon
-Nodemon automatise cette tâche pénible : il surveille vos fichiers backend et relance node server.js automatiquement dès que vous modifiez le serveur.
-
-- Vite s'occupe de transformer vos fichiers frontend (src/ \rightarrow public/). Aucun redémarrage serveur n'est nécessaire pour que le navigateur voie ces changements.
-
-- Nodemon ne sert qu'à relancer server.js lorsque vous touchez à la logique serveur (nouvelles routes Express, modification des imports Node, etc.).
-
-- C'est pourquoi on demande à Nodemon d'ignorer public/ et src/ : ces fichiers n'ont aucun impact sur le processus Node.
-
-Le dossier src/ est réservé aux fichiers sources qui doivent être compilés ou transformés par un outil (comme Vite ou Tailwind pour le CSS/JS).
-favicon.ico et robots.txt sont des fichiers bruts / statiques qui n'ont besoin d'aucune compilation.
 
 # ⚡ Boilerplate Vite + Pug
 
@@ -30,7 +17,7 @@ Pour un site vitrine très simple, rarement modifié, il est souvent préférabl
 
 Dans cette architecture, les pages ne sont pas générées en fichiers HTML statiques au moment du build.
 
-Le serveur **Express** rend les templates **Pug** dynamiquement à chaque requête via `server.js`.
+Le serveur **Express** rend les templates **Pug** dynamiquement à chaque requête via `index.js`.
 
 Le build sert principalement à préparer les assets publics :
 

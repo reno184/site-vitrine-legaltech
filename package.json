@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"vite build --watch\" \"nodemon server.js\"",
-    "build": "vite build"
+    "dev": "node --watch index.js",
+    "build": "vite build --watch"
   },
   "keywords": [],
   "author": "",
@@ -13,8 +13,6 @@
   "type": "commonjs",
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "concurrently": "^10.0.5",
-    "nodemon": "^3.1.14",
     "pug": "^3.0.4",
     "tailwindcss": "^4.3.3"
   },
