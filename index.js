@@ -4,11 +4,11 @@ const i18n = require("i18n");
 const articles = require("./data/articles");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 const supportedLocales = ["fr", "en"];
 const defaultLocale = "fr";
-const siteUrl = process.env.SITE_URL || "https://ton-domaine.com";
+const siteUrl = "https://legalcompliance.tech";
 
 i18n.configure({
     locales: supportedLocales,
@@ -22,6 +22,17 @@ i18n.configure({
 
 // Dossier des fichiers statiques
 app.use(express.static(path.join(__dirname, "public")));
+
+
+// Cache CDN pour Firebase Hosting (Activé uniquement en production)
+
+app.use((req, res, next) => {
+    if (!process.env.VITE_DEV) {
+        res.set('Cache-Control', 'public, max-age=300, s-maxage=3600');
+    }
+    next();
+});
+
 
 // i18n middleware
 app.use(i18n.init);
@@ -127,7 +138,12 @@ app.get("/:locale/articles/:slug", (req, res) => {
     });
 });
 
-// Lancement du serveur
-app.listen(PORT, () => {
-    console.log(`Serveur lancé sur http://localhost:${PORT}`);
-});
+const {onRequest} = require("firebase-functions/v2/https");
+
+if (process.env.VITE_DEV) {
+    app.listen(PORT, () => {
+        console.log(`Serveur lancé sur http://localhost:${PORT}`);
+    });
+}
+
+exports.legalCompliance = onRequest({region: "europe-west1"}, app);

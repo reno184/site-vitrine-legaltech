@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "24"
+  },
   "scripts": {
-    "dev": "node --watch index.js",
-    "build": "vite build --watch"
+    "dev": "VITE_DEV=true node --watch index.js",
+    "build": "vite build --watch",
+    "deploy": "firebase deploy --only functions,hosting:targetA"
   },
   "keywords": [],
   "author": "",
@@ -13,10 +17,13 @@
   "type": "commonjs",
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
-    "pug": "^3.0.4",
+    "firebase-tools": "^15.30.2",
     "tailwindcss": "^4.3.3"
   },
   "dependencies": {
+    "firebase-admin": "^14.4.0",
+    "firebase-functions": "^7.4.0",
+    "pug": "^3.0.4",
     "express": "^5.2.1",
     "i18n": "^0.15.3"
   }

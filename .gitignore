@@ -3,3 +3,5 @@ public/scripts/
 public/styles/style.css
 public/assets/
 .env
+firebase-debug.log
+.firebase

@@ -1,6 +1,28 @@
 # site-vitrine-legaltech
 
-> Important des containers actifs peuvent tourner en tâche de fond occuppant le port 3000, donc bienpenser à arrêter les containers actifs avant de lancer cette application qui tourne sans docker
+> Important des containers actifs peuvent tourner en tâche de fond occuppant le port 3000, donc bien penser à arrêter les containers actifs avant de lancer cette application qui tourne sans docker
+
+### Lancer scripts
+
+---
+
+Pour surveiller avec watcher index.js et les ficheirs pug
+
+```bash
+npm run serve
+```
+
+Pour compiler avec un watcher css et js
+
+```bash
+npm run build
+```
+
+Déploiement
+
+```bash
+npm firebase deploy --only functions
+```
 
 # Elements remarquables
 
