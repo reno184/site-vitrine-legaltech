@@ -10,11 +10,6 @@
       ],
       "rewrites": [
         {
-          "source": "/api/recaptcha",
-          "function": "recaptcha",
-          "region": "europe-west1"
-        },
-        {
           "source": "**",
           "function": "legalCompliance",
           "region": "europe-west1"

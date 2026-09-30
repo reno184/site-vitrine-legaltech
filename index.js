@@ -1,10 +1,14 @@
+require("dotenv").config();
 const express = require("express");
+
 const path = require("path");
 const i18n = require("i18n");
 const articles = require("./data/articles");
-
+const RecaptchaRouter = require("./api/RecaptchaRouter");
 const app = express();
 const PORT = 3000;
+app.use(express.json())
+app.use('/api/recaptcha', RecaptchaRouter)
 
 const supportedLocales = ["fr", "en"];
 const defaultLocale = "fr";
@@ -140,6 +144,7 @@ app.get("/:locale/articles/:slug", (req, res) => {
 
 const {onRequest} = require("firebase-functions/v2/https");
 
+
 if (process.env.VITE_DEV) {
     app.listen(PORT, () => {
         console.log(`Serveur lancé sur http://localhost:${PORT}`);
@@ -147,7 +152,3 @@ if (process.env.VITE_DEV) {
 }
 
 exports.legalCompliance = onRequest({region: "europe-west1"}, app);
-
-exports.recaptcha = onRequest({region: "europe-west1"}, (req, res) => {
-    res.status(200).send('recaptcha');
-});
