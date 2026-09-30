@@ -6,7 +6,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.querySelector("#contact-form");
     if (contactForm) {
         contactForm.addEventListener("submit", (e) => {
-            // Logique de validation ou d'envoi AJAX
+            e.preventDefault()
+            const isValid = e.target.checkValidity();
+            const formData = new FormData(e.target);
+            if (isValid) {
+                const body = {
+                    email: formData.get('email')
+                }
+                alert(body.email)
+                e.target.reset()
+            }
         });
     }
 });

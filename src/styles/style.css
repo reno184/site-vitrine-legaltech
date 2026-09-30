@@ -98,3 +98,14 @@ html[data-direction="left"] ::view-transition-group(active-menu-indicator) {
         transform-origin: left center;
     }
 }
+
+button[type="submit"] {
+    transition: .7s;
+}
+
+form:invalid input[type="submit"], form:invalid button[type="submit"], form:invalid button.next {
+    opacity: 0.3;
+    box-shadow: none;
+    cursor: default;
+    pointer-events: none;
+}

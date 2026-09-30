@@ -1,0 +1,14 @@
+form#contact-form.bg-mist-50.shadow-lg.p-3.rounded-md.text-lg.font-medium.text-gray-700
+    div
+        label.block(for="name") Nom
+        input.my-1.block.w-full.rounded-md.border.border-mist-500(type="text", name="name", required=true)
+
+    div
+        label(for="email") Email
+        input.my-1.block.w-full.rounded-md.border.border-mist-500(type="email", name="email", required=true)
+
+    div
+        label(for="message") Message
+        textarea.my-1.block.w-full.rounded-md.border.border-mist-500(name="message",rows=8, required=true)
+    footer.flex.justify-end.py-4
+        button.bg-mist-600.text-sm.text-white.px-4.py-1.rounded-md(type="submit") Envoyer
