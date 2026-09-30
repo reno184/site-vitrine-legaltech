@@ -147,3 +147,7 @@ if (process.env.VITE_DEV) {
 }
 
 exports.legalCompliance = onRequest({region: "europe-west1"}, app);
+
+exports.recaptcha = onRequest({region: "europe-west1"}, (req, res) => {
+    res.status(200).send('recaptcha');
+});
